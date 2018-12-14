@@ -1,0 +1,1741 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<!-- This manual is for using YAROS, version 0.1.0 .
+
+Copyright (C) 2018 Olivier Dion
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled "GNU
+Free Documentation License". -->
+<!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
+<head>
+<title>Using YAROS Version 0.1.0</title>
+
+<meta name="description" content="Using YAROS Version 0.1.0">
+<meta name="keywords" content="Using YAROS Version 0.1.0">
+<meta name="resource-type" content="document">
+<meta name="distribution" content="global">
+<meta name="Generator" content="makeinfo">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="#Top" rel="start" title="Top">
+<link href="#Index-of-Functions" rel="index" title="Index of Functions">
+<link href="#SEC_Contents" rel="contents" title="Table of Contents">
+<link href="dir.html#Top" rel="up" title="(dir)">
+<style type="text/css">
+<!--
+/*
+   My custom CSS style for Texinfo documents
+   Public domain 2016 sirgazil. All rights waived.
+*/
+
+/* Thanks for the style sheet sirgazil! */
+
+/* NATIVE ELEMENTS */
+
+a.summary-letter {text-decoration: none}
+blockquote.indentedblock {margin-right: 0em}
+blockquote.smallindentedblock {margin-right: 0em; font-size: smaller}
+blockquote.smallquotation {font-size: smaller}
+div.display {margin-left: 3.2em}
+div.example {margin-left: 3.2em}
+div.lisp {margin-left: 3.2em}
+div.smalldisplay {margin-left: 3.2em}
+div.smallexample {margin-left: 3.2em}
+div.smalllisp {margin-left: 3.2em}
+kbd {font-style: oblique}
+pre.display {font-family: inherit}
+pre.format {font-family: inherit}
+pre.menu-comment {font-family: serif}
+pre.menu-preformatted {font-family: serif}
+pre.smalldisplay {font-family: inherit; font-size: smaller}
+pre.smallexample {font-size: smaller}
+pre.smallformat {font-family: inherit; font-size: smaller}
+pre.smalllisp {font-size: smaller}
+span.nolinebreak {white-space: nowrap}
+span.roman {font-family: initial; font-weight: normal}
+span.sansserif {font-family: sans-serif; font-weight: normal}
+ul.no-bullet {list-style: none}
+a:link,
+a:visited {
+    color: #1E90FF;
+    text-decoration: none;
+}
+
+a:active,
+a:focus,
+a:hover {
+    text-decoration: underline;
+}
+
+abbr,
+acronym {
+    cursor: help;
+}
+
+blockquote {
+    color: #555753;
+    font-style: oblique;
+    margin: 30px 0px;
+    padding-left: 3em;
+}
+
+body {
+    background-color: white;
+    box-shadow: 0 0 2px gray;
+    box-sizing: border-box;
+    color: #333;
+    font-family: sans-serif;
+    font-size: 16px;
+    margin: 50px auto;
+    max-width: 960px;
+    padding: 50px;
+}
+
+code,
+samp,
+tt,
+var {
+    color: purple;
+    font-size: 0.8em;
+}
+
+div.example,
+div.lisp {
+    margin: 0px;
+}
+
+dl {
+    margin: 3em 0em;
+}
+
+dl dl {
+    margin: 0em;
+}
+
+dt {
+    background-color: #F5F5F5;
+    padding: 0.5em;
+}
+
+h1,
+h2,
+h2.contents-heading,
+h3,
+h4 {
+    padding: 20px 0px 0px 0px;
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 2.4em;
+}
+
+h2 {
+    font-size: 2.2em;
+    font-weight: bold;
+}
+
+h3 {
+    font-size: 1.8em;
+}
+
+h4 {
+    font-size: 1.4em;
+}
+
+hr {
+    background-color: silver;
+    border-style: none;
+    height: 1px;
+    margin: 0px;
+}
+
+html {
+    background-color: #F5F5F5;
+}
+
+img {
+    max-width: 100%;
+}
+
+li {
+    padding: 5px;
+}
+
+pre.display,
+pre.example,
+pre.format,
+pre.lisp,
+pre.verbatim{
+    overflow: auto;
+}
+
+pre.example,
+pre.lisp,
+pre.verbatim {
+    background-color: #2D3743;
+    border-color: #000;
+    border-style: solid;
+    border-width: thin;
+    color: #E1E1E1;
+    font-size: smaller;
+    padding: 1em;
+}
+
+table {
+    border-collapse: collapse;
+    margin: 40px 0px;
+}
+
+table.index-cp *,
+table.index-fn *,
+table.index-ky *,
+table.index-pg *,
+table.index-tp *,
+table.index-vr * {
+    background-color: inherit;
+    border-style: none;
+}
+
+td,
+th {
+    border-color: silver;
+    border-style: solid;
+    border-width: thin;
+    padding: 10px;
+}
+
+th {
+    background-color: #F5F5F5;
+}
+/* END NATIVE ELEMENTS */
+
+
+
+/* CLASSES */
+.contents {
+    margin-bottom: 4em;
+}
+
+.float {
+    margin: 3em 0em;
+}
+
+.float-caption {
+    font-size: smaller;
+    text-align: center;
+}
+
+.float > img {
+    display: block;
+    margin: auto;
+}
+
+.footnote {
+    font-size: smaller;
+    margin: 5em 0em;
+}
+
+.footnote h3 {
+    display: inline;
+    font-size: small;
+}
+
+.header {
+    background-color: #F2F2F2;
+    font-size: small;
+    padding: 0.2em 1em;
+}
+
+.key {
+    color: purple;
+    font-size: 0.8em;
+}
+
+.menu * {
+    border-style: none;
+}
+
+.menu td {
+    padding: 0.5em 0em;
+}
+
+.menu td:last-child {
+    width: 60%;
+}
+
+.menu th {
+    background-color: inherit;
+}
+/* END CLASSES */
+
+/**
+ * @license
+ * Copyright (C) 2015 Google Inc.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+/* Pretty printing styles. Used with prettify.js. */
+
+
+/* SPAN elements with the classes below are added by prettyprint. */
+.pln { color: #000 }  /* plain text */
+
+@media screen {
+  .str { color: #080 }  /* string content */
+  .kwd { color: #008 }  /* a keyword */
+  .com { color: #800 }  /* a comment */
+  .typ { color: #606 }  /* a type name */
+  .lit { color: #066 }  /* a literal value */
+  /* punctuation, lisp open bracket, lisp close bracket */
+  .pun, .opn, .clo { color: #660 }
+  .tag { color: #008 }  /* a markup tag name */
+  .atn { color: #606 }  /* a markup attribute name */
+  .atv { color: #080 }  /* a markup attribute value */
+  .dec, .var { color: #606 }  /* a declaration; a variable name */
+  .fun { color: red }  /* a function name */
+}
+
+/* Use higher contrast and text-weight for printable form. */
+@media print, projection {
+  .str { color: #060 }
+  .kwd { color: #006; font-weight: bold }
+  .com { color: #600; font-style: italic }
+  .typ { color: #404; font-weight: bold }
+  .lit { color: #044 }
+  .pun, .opn, .clo { color: #440 }
+  .tag { color: #006; font-weight: bold }
+  .atn { color: #404 }
+  .atv { color: #060 }
+}
+
+/* Put a border around prettyprinted code snippets. */
+pre.prettyprint { padding: 2px; border: 1px solid #888 }
+
+/* Specify class=linenums on a pre to get line numbering */
+ol.linenums { margin-top: 0; margin-bottom: 0 } /* IE indents via margin-left */
+li.L0,
+li.L1,
+li.L2,
+li.L3,
+li.L5,
+li.L6,
+li.L7,
+li.L8 { list-style-type: none }
+/* Alternate shading for lines */
+li.L1,
+li.L3,
+li.L5,
+li.L7,
+li.L9 { background: #eee }
+
+-->
+</style>
+
+
+</head>
+
+<body lang="en">
+<h1 class="settitle" align="center">Using YAROS Version 0.1.0</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="SEC_Contents"></a>
+<h2 class="contents-heading">Table of Contents</h2>
+
+<div class="contents">
+
+<ul class="no-bullet">
+  <li><a name="toc-Prologue-1" href="#Prologue">Prologue</a>
+  <ul class="no-bullet">
+    <li><a name="toc-How-to-Read-this-Manual" href="#How-to-Read-this-Manual">How to Read this Manual</a></li>
+    <li><a name="toc-Improvement-and-Suggestion" href="#Improvement-and-Suggestion">Improvement and Suggestion</a></li>
+  </ul></li>
+  <li><a name="toc-Concepts-of-YAROS" href="#Concepts">1 Concepts of YAROS</a>
+  <ul class="no-bullet">
+    <li><a name="toc-C-Dialect-1" href="#C-Dialect">1.1 C Dialect</a></li>
+    <li><a name="toc-Xlist-1" href="#Xlist">1.2 Xlist</a></li>
+    <li><a name="toc-Definition-of-a-Task" href="#Task">1.3 Definition of a Task</a></li>
+    <li><a name="toc-Task_0027s-Priority" href="#Priority">1.4 Task&rsquo;s Priority</a></li>
+    <li><a name="toc-Task_0027s-Niceness" href="#Niceness">1.5 Task&rsquo;s Niceness</a></li>
+    <li><a name="toc-Task_0027s-Stack-Size" href="#Stack">1.6 Task&rsquo;s Stack Size</a></li>
+    <li><a name="toc-The-Scheduler" href="#Scheduling">1.7 The Scheduler</a></li>
+    <li><a name="toc-Functions" href="#Functions">1.8 Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Kernel-Control" href="#Kernel-Control">1.8.1 Kernel Control</a></li>
+      <li><a name="toc-Time-Control" href="#Time-Control">1.8.2 Time Control</a></li>
+      <li><a name="toc-Task-and-Scheduler" href="#Task-and-Scheduler">1.8.3 Task and Scheduler</a></li>
+    </ul></li>
+  </ul></li>
+  <li><a name="toc-Examples-1" href="#Examples">2 Examples</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Defining-the-Tasks" href="#Defining-the-Tasks">2.1 Defining the Tasks</a></li>
+    <li><a name="toc-A-Basic-Main" href="#A-Basic-Main">2.2 A Basic Main</a></li>
+    <li><a name="toc-The-Tasks-Implementation" href="#The-Tasks-Implementation">2.3 The Tasks Implementation</a></li>
+  </ul></li>
+  <li><a name="toc-The-Internal-of-YAROS" href="#Internal">3 The Internal of YAROS</a>
+  <ul class="no-bullet">
+    <li><a name="toc-Structures" href="#Structures">3.1 Structures</a></li>
+    <li><a name="toc-Global-Variales" href="#Global-Variales">3.2 Global Variales</a></li>
+    <li><a name="toc-Configuration" href="#Configuration">3.3 Configuration</a></li>
+  </ul></li>
+  <li><a name="toc-Glossary-1" href="#Glossary">Appendix A Glossary</a></li>
+  <li><a name="toc-Copying-This-Manual" href="#GNU-Free-Documentation-License">Appendix B Copying This Manual</a></li>
+  <li><a name="toc-Function-and-Macros-Index" href="#Index-of-Functions">Function and Macros Index</a></li>
+  <li><a name="toc-List-of-Data-Structures" href="#Index-of-Structures">List of Data Structures</a></li>
+  <li><a name="toc-List-of-Global-Variables" href="#Index-of-Variables">List of Global Variables</a></li>
+</ul>
+</div>
+
+
+
+<a name="Top"></a>
+<div class="header">
+<p>
+Next: <a href="#Prologue" accesskey="n" rel="next">Prologue</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="YAROS"></a>
+<h1 class="top">YAROS</h1>
+<p>This manual is for using YAROS, version 0.1.0 .
+</p>
+<p>Copyright &copy; 2018 Olivier Dion
+</p>
+<blockquote>
+<p>Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+A copy of the license is included in the section entitled &quot;GNU
+Free Documentation License&quot;.
+</p></blockquote>
+
+
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Prologue" accesskey="1">Prologue</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is YAROS
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Introduction sections:
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Concepts" accesskey="2">Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The concepts of YAROS
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Examples" accesskey="3">Examples</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Few examples
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+Reference sections:
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Internal" accesskey="4">Internal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How YAROS work internally.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="5">Glossary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Glossary.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="6">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying this document.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Functions" accesskey="7">Index of Functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Structures" accesskey="8">Index of Structures</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Variables" accesskey="9">Index of Variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">&mdash; Detail Listing &mdash;
+
+The Concepts of YAROS
+
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#C-Dialect">C Dialect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The dialect of the C programming language used for YAROS and why.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Xlist">Xlist</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Usage of X macros in YAROS.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Task">Task</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Definition of a Task.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Priority">Priority</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is the priority of a task.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Niceness">Niceness</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is the niceness of a task.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Stack">Stack</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Why stack usage is important.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Scheduling">Scheduling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How scheduling is done.
+</td></tr>
+<tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr><tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
+
+</pre></th></tr></table>
+
+<hr>
+<a name="Prologue"></a>
+<div class="header">
+<p>
+Next: <a href="#Concepts" accesskey="n" rel="next">Concepts</a>, Previous: <a href="#Top" accesskey="p" rel="prev">Top</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Prologue-1"></a>
+<h2 class="unnumbered">Prologue</h2>
+<a name="index-RTOS"></a>
+<p>A <acronym title="Real-Time Operating System">RTOS</acronym> (Real-Time Operating System) is by definition an
+<em>OS</em> that must deal with real-time deadlines for its applications.
+Those deadlines can either be hard or soft.  A hard deadline is one
+that will provoke a system failure if missed, therefore a
+<acronym title="Real-Time Operating System">RTOS</acronym> that respects hard deadlines must guaranteed that all
+hard deadline are met.  A soft deadline is one that will not provoke a
+system failure if missed, but the <acronym title="Real-Time Operating System">RTOS</acronym> must try to meet its
+requirement.
+</p>
+<a name="index-YAROS"></a>
+<p><acronym title="Yet Another Real-time Operating System">YAROS</acronym> (Yet Another Real-time Operating System) aims to be a
+soft <acronym title="Real-Time Operating System">RTOS</acronym> for embedded systems for the AVR architecture.  I
+don&rsquo;t personally like the letters OS in <acronym title="Real-Time Operating System">RTOS</acronym>,
+because in the case of <acronym title="Yet Another Real-time Operating System">YAROS</acronym>, it&rsquo;s simply not true.
+<acronym title="Yet Another Real-time Operating System">YAROS</acronym> is a kernel for embedded systems. It provides
+abstraction over devices drivers, tasks scheduling, system
+interruptions, etc.  It does not provides system applications or user
+applications, like an OS would do.
+</p>
+<p>I created <acronym title="Yet Another Real-time Operating System">YAROS</acronym> during one of my course, out of boredom.
+After reading a few books on OS design, I decided to test my skills
+and knowledges by making my own kernel.  One can says that I was
+highly inspired by Linux, and it&rsquo;s entirely true.  I had no idea how
+to start, and I though that following the step of the giant would gave
+me a better idea of where to go.  I&rsquo;ve used <acronym title="Yet Another Real-time Operating System">YAROS</acronym> during the
+whole semester for every assignments and the final project.  It was
+for me a way to test and improve <acronym title="Yet Another Real-time Operating System">YAROS</acronym>.  This is the past,
+but I want to continue this project to see where it can go and learn
+more from it.
+</p>
+<p>I would like to thank <b>Robert Love</b> for his book <cite>Linux Kernel
+Development</cite>, that helped me understand the internal of Linux.
+</p>
+<a name="How-to-Read-this-Manual"></a>
+<h3 class="section">How to Read this Manual</h3>
+<p>You have to read this manual&rsquo;s sections linearly.  If you skip a
+section, you will not understand the next one.  But, you can skip
+chapter without getting too much confuse.  Although, it&rsquo;s recommended
+to not skip chapter.
+</p>
+<a name="Improvement-and-Suggestion"></a>
+<h3 class="section">Improvement and Suggestion</h3>
+<p>This is my first RTOS, but also my first manual.  If you have any
+suggestion or improvement for either YAROS or this manual, please feel
+free to send your comments to <a href="mailto:olivier.dion@polymtl.ca">olivier.dion@polymtl.ca</a>.
+</p>
+
+
+<hr>
+<a name="Concepts"></a>
+<div class="header">
+<p>
+Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Prologue" accesskey="p" rel="prev">Prologue</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Concepts-of-YAROS"></a>
+<h2 class="chapter">1 Concepts of YAROS</h2>
+<p>This chapter will explain to you the concept of YAROS, without going
+into the internal details.  After reading this chapter, you should
+have a clear idea on what is the purpose of YAROS, and the concepts
+around it.
+</p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#C-Dialect" accesskey="1">C Dialect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Xlist" accesskey="2">Xlist</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Task" accesskey="3">Task</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Priority" accesskey="4">Priority</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Niceness" accesskey="5">Niceness</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Stack" accesskey="6">Stack</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Scheduling" accesskey="7">Scheduling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
+<hr>
+<a name="C-Dialect"></a>
+<div class="header">
+<p>
+Next: <a href="#Xlist" accesskey="n" rel="next">Xlist</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="C-Dialect-1"></a>
+<h3 class="section">1.1 C Dialect</h3>
+<a name="index-GNU11"></a>
+<p>YAROS uses <em>GNU</em> extensions for C.  Notable usage are function
+attributes, designated initializers and inline assembly.  YAROS also
+use flexible array member, which is not compatible with C++.  This was
+a design decision because YAROS needs everything to be compile time.
+Although it would be possible to accomplish the same thing using
+templates, it would also require to create a base type for the task
+structure.  The best thing would be to implement a memory manager to
+avoid using those compile time constraints.  Finally, here&rsquo;s a list of
+pros and cons for using C++.
+</p>
+<ul>
+<li> Pros
+
+<ul class="no-bullet">
+<li>- Template meta-programming
+        
+
+</li></ul>
+
+</li><li> Cons
+
+<ul class="no-bullet">
+<li>- Casting is not enough permissive
+
+</li><li>- Debugging mangled names is a real pain
+
+</li><li>- Operators overloading are useless
+
+</li><li>- Namespace are useless
+
+</li><li>- Default arguments are useless
+
+</li><li>- Exceptions and virtual tables are banned
+
+</li><li>- The whole C++ standard library and the STL are banned
+
+</li><li>- Will only work with C++ code
+
+</li></ul>
+
+</li></ul>
+
+<p>As you can see, the only pros for using C++ is template for better
+meta-programming.  The cons outweigh the pros and therefore, only C
+shall be use for YAROS.  Maybe in the future C++ written like C will
+be used, nothing is cast into stone.
+</p>
+<hr>
+<a name="Xlist"></a>
+<div class="header">
+<p>
+Next: <a href="#Task" accesskey="n" rel="next">Task</a>, Previous: <a href="#C-Dialect" accesskey="p" rel="prev">C Dialect</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Xlist-1"></a>
+<h3 class="section">1.2 Xlist</h3>
+<a name="index-Xlist"></a>
+<p>YAROS makes extensive use of X macros to keep files synchronized.
+Every files that have a list of X macros have the extension
+<samp>.xlist</samp> .  An example would be the file
+<samp>include/YAROS/global.xlist.h</samp> that synchronizes the files
+<samp>include/YAROS/global.h</samp> and <samp>kernel/global.c</samp> .
+</p>
+<hr>
+<a name="Task"></a>
+<div class="header">
+<p>
+Next: <a href="#Priority" accesskey="n" rel="next">Priority</a>, Previous: <a href="#Xlist" accesskey="p" rel="prev">Xlist</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Definition-of-a-Task"></a>
+<h3 class="section">1.3 Definition of a Task</h3>
+<a name="index-Task"></a>
+<p>A task in YAROS is what we can refer to as a thread.  There are 3
+properties that you should consider when developing a task. Its
+priority, its nice value and its stack size.
+</p>
+<hr>
+<a name="Priority"></a>
+<div class="header">
+<p>
+Next: <a href="#Niceness" accesskey="n" rel="next">Niceness</a>, Previous: <a href="#Task" accesskey="p" rel="prev">Task</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Task_0027s-Priority"></a>
+<h3 class="section">1.4 Task&rsquo;s Priority</h3>
+<a name="index-Task_0027s-Priority"></a>
+<p>A task&rsquo;s priority range between 0 and 7 inclusive. The lower the value
+is, the higher is the priority.  As for now, the priority only
+dictated the order of the task in the running queue.  This behavior
+might change in the future.
+</p>
+<hr>
+<a name="Niceness"></a>
+<div class="header">
+<p>
+Next: <a href="#Stack" accesskey="n" rel="next">Stack</a>, Previous: <a href="#Priority" accesskey="p" rel="prev">Priority</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Task_0027s-Niceness"></a>
+<h3 class="section">1.5 Task&rsquo;s Niceness</h3>
+<a name="index-Task_0027s-Niceness"></a>
+<p>A task&rsquo;s nice value range between 0 and 15 inclusive. It determines how
+much CPU time his allocated for the task before rescheduling.  We said
+that a task is nice to other if its nice value is high.  This means
+that the task will be running less time before scheduling to another
+task.  On the opposite, a task that is not nice, <i>i.e</i>. with a low
+value of nice, will run longer.
+</p>
+<hr>
+<a name="Stack"></a>
+<div class="header">
+<p>
+Next: <a href="#Scheduling" accesskey="n" rel="next">Scheduling</a>, Previous: <a href="#Niceness" accesskey="p" rel="prev">Niceness</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Task_0027s-Stack-Size"></a>
+<h3 class="section">1.6 Task&rsquo;s Stack Size</h3>
+<a name="index-Task_0027s-Stack-Size"></a>
+<p>The stack size is probably the most important value to
+evaluate.  Underestimate the value and you might overflow and corrupt
+your RAM, resulting in an undefined behavior.  Overestimate and you
+will waste RAM space.  A good way to start is to put a high safe
+value.  Then, reduce the stack size until there&rsquo;s a problem. From
+there, just return to your last safe point and add some padding just
+to be extra careful.  Stack overflow is the most common and dangerous
+problem, be very cautious.
+</p>
+<p>Note that the size of your stack is added with the minimal stack
+value, which is 40 bytes. This minimal stack is to ensure there&rsquo;s
+enough space for context switch.  32 registers + SREG + return address
++ kill_self address = 37 bytes.  There&rsquo;s a little of padding just to
+be extra cautious.
+</p>
+<hr>
+<a name="Scheduling"></a>
+<div class="header">
+<p>
+Previous: <a href="#Stack" accesskey="p" rel="prev">Stack</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-Scheduler"></a>
+<h3 class="section">1.7 The Scheduler</h3>
+<a name="index-Scheduling"></a>
+<p>YAROS is a time-sharing system.  It follows a simple <a href="#round_002drobin">round-robin</a> policy
+and is therefore preemptive.  It&rsquo;s athought possible for task to be
+cooperative by forcing scheduling.
+</p>
+<a name="Functions"></a>
+<h3 class="section">1.8 Functions</h3>
+<p>This section will describe to you the interface that you can use with
+YAROS.  Functions that are tagged as <i>Atomic</i> are guaranteed to be
+executed without rescheduling.  Functions that are tagged as <i>Macro</i>
+are composite of regular or atomic function.
+</p>
+<a name="Kernel-Control"></a>
+<h4 class="subsection">1.8.1 Kernel Control</h4>
+<p>These functions manipulate the kernel. 
+</p><dl>
+<dt><a name="index-kinit"></a>: <em>void</em> <strong>kinit</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Initiliaze the kernel.  This should be the first function you call in your main.
+</p><br>
+<p><b>Warning: </b>
+Using YAROS without initializing the kernel first result in undefined behavior.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-kpanic"></a>: <em>void</em> <strong>kpanic</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Stop all system activities and print -| KERNEL PANIC.
+</p><br>
+<p><b>Warning: </b>
+The kernel can not recover from a panic.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-krun"></a>: <em>void</em> <strong>krun</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Launch the kernel scheduler.  This should be the last thing in your main.
+</p><br>
+<p><b>Warning: </b>
+If no task is scheduled, the kernel will spin a loop until a task is scheduled.
+</p></dd></dl>
+<br>
+<br>
+<br>
+
+<a name="Time-Control"></a>
+<h4 class="subsection">1.8.2 Time Control</h4>
+<p>These functions help you with getting the time.
+</p><dl>
+<dt><a name="index-clk"></a>: <em>U64</em> <strong>clk</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Return the time in milliseconds since the kernel was launched.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-tick"></a>Atomic: <em>jiffy_t</em> <strong>tick</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Return the number of jiffies ellapsed since the kernel was launched.
+</p></dd></dl>
+<br>
+<br>
+<br>
+
+<a name="Task-and-Scheduler"></a>
+<h4 class="subsection">1.8.3 Task and Scheduler</h4>
+<p>These functions give you control over the tasks and the scheduler
+</p><dl>
+<dt><a name="index-init_005ftask"></a>: <em>struct task*</em> <strong>init_task</strong> <em>(struct task *<code>task</code>, taskfunc <code>func</code>, void *<code>data</code>)</em></dt>
+<dd><br>
+<p>Initialize the task pointed by <code>task</code> with function entry point
+pointed by <code>func</code> and parameter passed to the entry point,
+pointed by <code>data</code>.
+</p><br>
+<p><b>Warning: </b>
+<code>task</code> and <code>func</code> can not be <code>NULL</code>.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-kill_005fself"></a>Atomic: <em>void</em> <strong>kill_self</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Kill the calling task and reschedule.
+</p><br>
+<p><b>Warning: </b>
+Killing the last running task will triggered a kernel panic.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-kill_005ftask"></a>Atomic: <em>void</em> <strong>kill_task</strong> <em>(struct task *<code>task</code>)</em></dt>
+<dd><br>
+<p>Kill the task pointed by <code>task</code>.
+</p><br>
+<p><b>Note: </b>
+If <code>task</code> is <code>NULL</code>, kill the calling task.
+</p><br>
+<p><b>Warning: </b>
+Killing the last running task will triggered a kernel panic.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-reschedule"></a>Atomic: <em>void</em> <strong>reschedule</strong> <em>(void)</em></dt>
+<dd><br>
+<p>Force rescheduling, <i>i.e.</i> do not wait for the kernel to switch the
+context.
+</p><br>
+<p><b>Note: </b>
+Rescheduling when there&rsquo;s only one task running has no effect.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-resume"></a>Atomic: <em>void</em> <strong>resume</strong> <em>(struct task *<code>task</code>)</em></dt>
+<dd><br>
+<p>Put the task pointed by <code>task</code> in the running queue.  If <code>NULL</code> is
+passed, the calling task is put in the running queue.
+</p><br>
+<p><b>Note: </b>
+Resuming a task that is already running has no effect.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-run_005ftask"></a>Macro: <em></em> <strong>run_task</strong> <em>(<code>TASK</code>, <code>FUNC</code>, <code>DATA</code>)</em></dt>
+<dd><br>
+<p>Initialize and resume a task.
+</p><br>
+<p>&rarr;
+({
+init_task(<code>TASK</code>, <code>FUNC</code>, <code>DATA</code>);
+resume(<code>TASK</code>);
+})
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-suspend"></a>Atomic: <em>void</em> <strong>suspend</strong> <em>(struct task *<code>task</code>)</em></dt>
+<dd><br>
+<p>Put the task pointed by <code>task</code> in the sleeping queue.  If <code>NULL</code> is
+passed, the calling task is put in the sleeping queue.
+</p><br>
+<p><b>Note: </b>
+Suspending a task that is already sleeping has no effect.
+</p><br>
+<p><b>Warning: </b>
+As for now, if the last running task is suspending itself, the kernel
+panic.  This might change in the future by putting the system in low
+energy mode.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-wait"></a>: <em>void</em> <strong>wait</strong> <em>(jiffy_t <code>delay</code>)</em></dt>
+<dd><br>
+<p>Reschedule the calling task until <code>delay</code> has passed.
+</p></dd></dl>
+<br>
+<br>
+<br>
+
+
+<hr>
+<a name="Examples"></a>
+<div class="header">
+<p>
+Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a href="#Concepts" accesskey="p" rel="prev">Concepts</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Examples-1"></a>
+<h2 class="chapter">2 Examples</h2>
+
+<a name="Defining-the-Tasks"></a>
+<h3 class="section">2.1 Defining the Tasks</h3>
+<div class="example">
+<pre class="example">    #include &quot;YAROS.h&quot;
+
+    /* foo has priority level 0,
+       nice value of 5 and a stack of 50 bytes */
+    struct task foo = TASK(TASK_P0, TASK_N5, 50);
+
+    /* foo has priority level 4,
+       nice value of 9 and a stack of 75 bytes */
+    struct task bar = TASK(TASK_P4, TASK_N9, 75);
+
+    OS_TASK void
+    do_foo(void *task);
+
+    OS_TASK void
+    do_bar(void *nil);
+</pre></div>
+
+<a name="A-Basic-Main"></a>
+<h3 class="section">2.2 A Basic Main</h3>
+<div class="example">
+<pre class="example">    int
+    main(int argc, char *argv[])
+    {
+        /* Initialize the Kernel */
+        kinit();
+
+        /* Foo is scheduled */
+        run_task(&amp;foo,
+                 do_foo,
+                 &amp;bar);
+
+        /* Bar is suspended */
+        init_task(&amp;bar,
+                  do_bar,
+                  NULL);
+
+        /* krun never return */
+        krun();
+    }
+</pre></div>
+
+<a name="The-Tasks-Implementation"></a>
+<h3 class="section">2.3 The Tasks Implementation</h3>
+<div class="example">
+<pre class="example">    OS_TASK void
+    do_foo(void *bar_task)
+    {
+        static const char foo_str[] = {'f', 'o', 'o', '\n'};
+
+        while (1) {
+
+            /* Write &quot;foo_str\n&quot; to USART 0 */
+            write_usart(0, foo_str, sizeof(foo_str));
+
+            /* Resume bar */
+            resume(bar_task);
+
+            /* Wait 1 second */
+            wait(HZ);
+
+            /* Suspend bar */
+            suspend(bar_task);
+        }
+    }
+
+    OS_TASK void
+    do_bar(void *nil)
+    {
+        static const char bar_str[] = {'b', 'a', 'r', '\n' };
+
+        while (1) {
+
+            /* Write &quot;bar\n&quot; to USART 0 */
+            write_usart(0, bar_str, sizeof(bar_str));
+            
+            /* Wait 1/2 second */
+            wait(HZ / 2);
+        }
+    }
+</pre></div>
+
+<hr>
+<a name="Internal"></a>
+<div class="header">
+<p>
+Next: <a href="#Glossary" accesskey="n" rel="next">Glossary</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="The-Internal-of-YAROS"></a>
+<h2 class="chapter">3 The Internal of YAROS</h2>
+<p>This chapter will explain to you how YAROS work internally.  After
+reading this chapter, you should be able to understand how the
+scheduler work with tasks, how interupts and devices are manage and
+how mutexes work.
+</p>
+<a name="Structures"></a>
+<h3 class="section">3.1 Structures</h3>
+<dl>
+<dt><a name="index-dlist"></a>struct: <strong>dlist</strong></dt>
+<dd><pre class="prettyprint lang-c">
+<p>{
+&nbsp;&nbsp;&nbsp;&nbsp;struct dlist *next, *prev;
+};
+</pre>
+</p><br>
+<p>Doubly linked list intrusive.
+</p></dd></dl>
+<dl>
+<dt><a name="index-task"></a>struct: <strong>task</strong></dt>
+<dd><pre class="prettyprint lang-c">
+<p>{
+&nbsp;&nbsp;&nbsp;&nbsp;struct dlist self;
+&nbsp;&nbsp;&nbsp;&nbsp;U16 * volatile stack_pointer;
+&nbsp;&nbsp;&nbsp;&nbsp;U8 running:1;
+&nbsp;&nbsp;&nbsp;&nbsp;U8 priority:3;
+&nbsp;&nbsp;&nbsp;&nbsp;U8 nice:4;
+&nbsp;&nbsp;&nbsp;&nbsp;sstack_t size;
+&nbsp;&nbsp;&nbsp;&nbsp;U8 stack[ ];
+};
+</pre>
+</p><br>
+<p>A task is the central structure in YAROS.  The member <code>self</code> denote a node in a queue.  The node has 3 states.  It can either be attached to itself, therefore YAROS has no knowledge about the task.  It can be attached to the running queue.  Or it can be attached to the sleeping queue.
+</p>
+<p><b>Note: </b>
+The member <code>self</code> was called <code>this</code> before.  But because C++ use it as a keyword, it was changed to <code>self</code>.
+</p>
+<p><b>Note: </b>
+The type sstack_t means <b>size stack type</b>.  It is an horrible name, so if you have a better idea for a typename, please submit it.
+</p></dd></dl>
+
+<a name="Global-Variales"></a>
+<h3 class="section">3.2 Global Variales</h3>
+<dl>
+<dt><a name="index-jiffies"></a>Global: <em>jiffy_t</em> <strong>jiffies</strong></dt>
+<dd><p>Just like a clock has a finite precision, YAROS has it own limit when
+it come to counting time, and this limit is call a jiffy.  We define a
+jiffy to be the smallest unit of time for the system.  The variable
+<code>jiffies</code> hold the amount of jiffies ellapsed since the system
+had started.  This variable is increment <code>HZ</code> times per second,
+</p>
+</dd></dl>
+<dl>
+<dt><a name="index-jiffies-1"></a>Global: <em>jiffy_t</em> <strong>jiffies</strong></dt>
+<dd><p>Smallest unit of time
+</p></dd></dl>
+
+
+<a name="Configuration"></a>
+<h3 class="section">3.3 Configuration</h3>
+<dl>
+<dt><a name="index-CONFIG_005fJIFFY"></a>Config Option: <strong>CONFIG_JIFFY</strong></dt>
+<dd><p>foo foo foo
+</p></dd></dl>
+
+
+<hr>
+<a name="Glossary"></a>
+<div class="header">
+<p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Internal" accesskey="p" rel="prev">Internal</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Glossary-1"></a>
+<h2 class="appendix">Appendix A Glossary</h2>
+<a name="index-Glossary"></a>
+
+<dl compact="compact">
+<dt>Round-Robin Policy</dt>
+<dd><a name="round_002drobin"></a><p>foo
+</p>
+</dd>
+<dt>RTOS</dt>
+<dd><p>A RTOS is a real-time operating system.  It must be able to meet soft
+and hard deadline.  See <a href="#Prologue">Prologue</a>.
+</p>
+<p>It has its own context (stack of execution)
+and is independent of other tasks.  Of course just like thread, tasks can be synchronize between them via mutexes or semaphores.  See <a href="#Task">Task</a>.
+</p>
+</dd>
+<dt>Xlist</dt>
+<dd><p>A Xlist is a list of terms wrapped in a X macro individually.  Xlist
+are useful to synchronize list of elements between files that use them
+but expand the X macro differently.  See <a href="#Xlist">Xlist</a>.
+</p>
+</dd>
+<dt>YAROS</dt>
+<dd><p>YAROS is a RTOS for embedded system for the AVR
+family.  It&rsquo;s the subject of this manual.  See <a href="#Prologue">Prologue</a>.
+</p>
+</dd>
+</dl>
+
+
+
+<hr>
+<a name="GNU-Free-Documentation-License"></a>
+<div class="header">
+<p>
+Next: <a href="#Index-of-Functions" accesskey="n" rel="next">Index of Functions</a>, Previous: <a href="#Glossary" accesskey="p" rel="prev">Glossary</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Copying-This-Manual"></a>
+<h2 class="appendix">Appendix B Copying This Manual</h2>
+
+<div align="center">Version 1.3, 3 November 2008
+</div>
+
+<div class="display">
+<pre class="display">Copyright &copy; 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+<a href="https://fsf.org/">https://fsf.org/</a>
+
+Everyone is permitted to copy and distribute verbatim copies
+of this license document, but changing it is not allowed.
+</pre></div>
+
+<ol>
+<li> PREAMBLE
+
+<p>The purpose of this License is to make a manual, textbook, or other
+functional and useful document <em>free</em> in the sense of freedom: to
+assure everyone the effective freedom to copy and redistribute it,
+with or without modifying it, either commercially or noncommercially.
+Secondarily, this License preserves for the author and publisher a way
+to get credit for their work, while not being considered responsible
+for modifications made by others.
+</p>
+<p>This License is a kind of &ldquo;copyleft&rdquo;, which means that derivative
+works of the document must themselves be free in the same sense.  It
+complements the GNU General Public License, which is a copyleft
+license designed for free software.
+</p>
+<p>We have designed this License in order to use it for manuals for free
+software, because free software needs free documentation: a free
+program should come with manuals providing the same freedoms that the
+software does.  But this License is not limited to software manuals;
+it can be used for any textual work, regardless of subject matter or
+whether it is published as a printed book.  We recommend this License
+principally for works whose purpose is instruction or reference.
+</p>
+</li><li> APPLICABILITY AND DEFINITIONS
+
+<p>This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License.  Such a notice grants a
+world-wide, royalty-free license, unlimited in duration, to use that
+work under the conditions stated herein.  The &ldquo;Document&rdquo;, below,
+refers to any such manual or work.  Any member of the public is a
+licensee, and is addressed as &ldquo;you&rdquo;.  You accept the license if you
+copy, modify or distribute the work in a way requiring permission
+under copyright law.
+</p>
+<p>A &ldquo;Modified Version&rdquo; of the Document means any work containing the
+Document or a portion of it, either copied verbatim, or with
+modifications and/or translated into another language.
+</p>
+<p>A &ldquo;Secondary Section&rdquo; is a named appendix or a front-matter section
+of the Document that deals exclusively with the relationship of the
+publishers or authors of the Document to the Document&rsquo;s overall
+subject (or to related matters) and contains nothing that could fall
+directly within that overall subject.  (Thus, if the Document is in
+part a textbook of mathematics, a Secondary Section may not explain
+any mathematics.)  The relationship could be a matter of historical
+connection with the subject or with related matters, or of legal,
+commercial, philosophical, ethical or political position regarding
+them.
+</p>
+<p>The &ldquo;Invariant Sections&rdquo; are certain Secondary Sections whose titles
+are designated, as being those of Invariant Sections, in the notice
+that says that the Document is released under this License.  If a
+section does not fit the above definition of Secondary then it is not
+allowed to be designated as Invariant.  The Document may contain zero
+Invariant Sections.  If the Document does not identify any Invariant
+Sections then there are none.
+</p>
+<p>The &ldquo;Cover Texts&rdquo; are certain short passages of text that are listed,
+as Front-Cover Texts or Back-Cover Texts, in the notice that says that
+the Document is released under this License.  A Front-Cover Text may
+be at most 5 words, and a Back-Cover Text may be at most 25 words.
+</p>
+<p>A &ldquo;Transparent&rdquo; copy of the Document means a machine-readable copy,
+represented in a format whose specification is available to the
+general public, that is suitable for revising the document
+straightforwardly with generic text editors or (for images composed of
+pixels) generic paint programs or (for drawings) some widely available
+drawing editor, and that is suitable for input to text formatters or
+for automatic translation to a variety of formats suitable for input
+to text formatters.  A copy made in an otherwise Transparent file
+format whose markup, or absence of markup, has been arranged to thwart
+or discourage subsequent modification by readers is not Transparent.
+An image format is not Transparent if used for any substantial amount
+of text.  A copy that is not &ldquo;Transparent&rdquo; is called &ldquo;Opaque&rdquo;.
+</p>
+<p>Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, LaTeX input
+format, SGML or XML using a publicly available
+DTD, and standard-conforming simple HTML,
+PostScript or PDF designed for human modification.  Examples
+of transparent image formats include PNG, XCF and
+JPG.  Opaque formats include proprietary formats that can be
+read and edited only by proprietary word processors, SGML or
+XML for which the DTD and/or processing tools are
+not generally available, and the machine-generated HTML,
+PostScript or PDF produced by some word processors for
+output purposes only.
+</p>
+<p>The &ldquo;Title Page&rdquo; means, for a printed book, the title page itself,
+plus such following pages as are needed to hold, legibly, the material
+this License requires to appear in the title page.  For works in
+formats which do not have any title page as such, &ldquo;Title Page&rdquo; means
+the text near the most prominent appearance of the work&rsquo;s title,
+preceding the beginning of the body of the text.
+</p>
+<p>The &ldquo;publisher&rdquo; means any person or entity that distributes copies
+of the Document to the public.
+</p>
+<p>A section &ldquo;Entitled XYZ&rdquo; means a named subunit of the Document whose
+title either is precisely XYZ or contains XYZ in parentheses following
+text that translates XYZ in another language.  (Here XYZ stands for a
+specific section name mentioned below, such as &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, &ldquo;Endorsements&rdquo;, or &ldquo;History&rdquo;.)  To &ldquo;Preserve the Title&rdquo;
+of such a section when you modify the Document means that it remains a
+section &ldquo;Entitled XYZ&rdquo; according to this definition.
+</p>
+<p>The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document.  These Warranty
+Disclaimers are considered to be included by reference in this
+License, but only as regards disclaiming warranties: any other
+implication that these Warranty Disclaimers may have is void and has
+no effect on the meaning of this License.
+</p>
+</li><li> VERBATIM COPYING
+
+<p>You may copy and distribute the Document in any medium, either
+commercially or noncommercially, provided that this License, the
+copyright notices, and the license notice saying this License applies
+to the Document are reproduced in all copies, and that you add no other
+conditions whatsoever to those of this License.  You may not use
+technical measures to obstruct or control the reading or further
+copying of the copies you make or distribute.  However, you may accept
+compensation in exchange for copies.  If you distribute a large enough
+number of copies you must also follow the conditions in section 3.
+</p>
+<p>You may also lend copies, under the same conditions stated above, and
+you may publicly display copies.
+</p>
+</li><li> COPYING IN QUANTITY
+
+<p>If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document&rsquo;s license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts on
+the back cover.  Both covers must also clearly and legibly identify
+you as the publisher of these copies.  The front cover must present
+the full title with all words of the title equally prominent and
+visible.  You may add other material on the covers in addition.
+Copying with changes limited to the covers, as long as they preserve
+the title of the Document and satisfy these conditions, can be treated
+as verbatim copying in other respects.
+</p>
+<p>If the required texts for either cover are too voluminous to fit
+legibly, you should put the first ones listed (as many as fit
+reasonably) on the actual cover, and continue the rest onto adjacent
+pages.
+</p>
+<p>If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque copy
+a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute an
+Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+</p>
+<p>It is requested, but not required, that you contact the authors of the
+Document well before redistributing any large number of copies, to give
+them a chance to provide you with an updated version of the Document.
+</p>
+</li><li> MODIFICATIONS
+
+<p>You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it.  In addition, you must do these things in the Modified Version:
+</p>
+<ol>
+<li> Use in the Title Page (and on the covers, if any) a title distinct
+from that of the Document, and from those of previous versions
+(which should, if there were any, be listed in the History section
+of the Document).  You may use the same title as a previous version
+if the original publisher of that version gives permission.
+
+</li><li> List on the Title Page, as authors, one or more persons or entities
+responsible for authorship of the modifications in the Modified
+Version, together with at least five of the principal authors of the
+Document (all of its principal authors, if it has fewer than five),
+unless they release you from this requirement.
+
+</li><li> State on the Title page the name of the publisher of the
+Modified Version, as the publisher.
+
+</li><li> Preserve all the copyright notices of the Document.
+
+</li><li> Add an appropriate copyright notice for your modifications
+adjacent to the other copyright notices.
+
+</li><li> Include, immediately after the copyright notices, a license notice
+giving the public permission to use the Modified Version under the
+terms of this License, in the form shown in the Addendum below.
+
+</li><li> Preserve in that license notice the full lists of Invariant Sections
+and required Cover Texts given in the Document&rsquo;s license notice.
+
+</li><li> Include an unaltered copy of this License.
+
+</li><li> Preserve the section Entitled &ldquo;History&rdquo;, Preserve its Title, and add
+to it an item stating at least the title, year, new authors, and
+publisher of the Modified Version as given on the Title Page.  If
+there is no section Entitled &ldquo;History&rdquo; in the Document, create one
+stating the title, year, authors, and publisher of the Document as
+given on its Title Page, then add an item describing the Modified
+Version as stated in the previous sentence.
+
+</li><li> Preserve the network location, if any, given in the Document for
+public access to a Transparent copy of the Document, and likewise
+the network locations given in the Document for previous versions
+it was based on.  These may be placed in the &ldquo;History&rdquo; section.
+You may omit a network location for a work that was published at
+least four years before the Document itself, or if the original
+publisher of the version it refers to gives permission.
+
+</li><li> For any section Entitled &ldquo;Acknowledgements&rdquo; or &ldquo;Dedications&rdquo;, Preserve
+the Title of the section, and preserve in the section all the
+substance and tone of each of the contributor acknowledgements and/or
+dedications given therein.
+
+</li><li> Preserve all the Invariant Sections of the Document,
+unaltered in their text and in their titles.  Section numbers
+or the equivalent are not considered part of the section titles.
+
+</li><li> Delete any section Entitled &ldquo;Endorsements&rdquo;.  Such a section
+may not be included in the Modified Version.
+
+</li><li> Do not retitle any existing section to be Entitled &ldquo;Endorsements&rdquo; or
+to conflict in title with any Invariant Section.
+
+</li><li> Preserve any Warranty Disclaimers.
+</li></ol>
+
+<p>If the Modified Version includes new front-matter sections or
+appendices that qualify as Secondary Sections and contain no material
+copied from the Document, you may at your option designate some or all
+of these sections as invariant.  To do this, add their titles to the
+list of Invariant Sections in the Modified Version&rsquo;s license notice.
+These titles must be distinct from any other section titles.
+</p>
+<p>You may add a section Entitled &ldquo;Endorsements&rdquo;, provided it contains
+nothing but endorsements of your Modified Version by various
+parties&mdash;for example, statements of peer review or that the text has
+been approved by an organization as the authoritative definition of a
+standard.
+</p>
+<p>You may add a passage of up to five words as a Front-Cover Text, and a
+passage of up to 25 words as a Back-Cover Text, to the end of the list
+of Cover Texts in the Modified Version.  Only one passage of
+Front-Cover Text and one of Back-Cover Text may be added by (or
+through arrangements made by) any one entity.  If the Document already
+includes a cover text for the same cover, previously added by you or
+by arrangement made by the same entity you are acting on behalf of,
+you may not add another; but you may replace the old one, on explicit
+permission from the previous publisher that added the old one.
+</p>
+<p>The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert or
+imply endorsement of any Modified Version.
+</p>
+</li><li> COMBINING DOCUMENTS
+
+<p>You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified
+versions, provided that you include in the combination all of the
+Invariant Sections of all of the original documents, unmodified, and
+list them all as Invariant Sections of your combined work in its
+license notice, and that you preserve all their Warranty Disclaimers.
+</p>
+<p>The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy.  If there are multiple Invariant Sections with the same name but
+different contents, make the title of each such section unique by
+adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of
+Invariant Sections in the license notice of the combined work.
+</p>
+<p>In the combination, you must combine any sections Entitled &ldquo;History&rdquo;
+in the various original documents, forming one section Entitled
+&ldquo;History&rdquo;; likewise combine any sections Entitled &ldquo;Acknowledgements&rdquo;,
+and any sections Entitled &ldquo;Dedications&rdquo;.  You must delete all
+sections Entitled &ldquo;Endorsements.&rdquo;
+</p>
+</li><li> COLLECTIONS OF DOCUMENTS
+
+<p>You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of this
+License in the various documents with a single copy that is included in
+the collection, provided that you follow the rules of this License for
+verbatim copying of each of the documents in all other respects.
+</p>
+<p>You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of this
+License into the extracted document, and follow this License in all
+other respects regarding verbatim copying of that document.
+</p>
+</li><li> AGGREGATION WITH INDEPENDENT WORKS
+
+<p>A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage or
+distribution medium, is called an &ldquo;aggregate&rdquo; if the copyright
+resulting from the compilation is not used to limit the legal rights
+of the compilation&rsquo;s users beyond what the individual works permit.
+When the Document is included in an aggregate, this License does not
+apply to the other works in the aggregate which are not themselves
+derivative works of the Document.
+</p>
+<p>If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half of
+the entire aggregate, the Document&rsquo;s Cover Texts may be placed on
+covers that bracket the Document within the aggregate, or the
+electronic equivalent of covers if the Document is in electronic form.
+Otherwise they must appear on printed covers that bracket the whole
+aggregate.
+</p>
+</li><li> TRANSLATION
+
+<p>Translation is considered a kind of modification, so you may
+distribute translations of the Document under the terms of section 4.
+Replacing Invariant Sections with translations requires special
+permission from their copyright holders, but you may include
+translations of some or all Invariant Sections in addition to the
+original versions of these Invariant Sections.  You may include a
+translation of this License, and all the license notices in the
+Document, and any Warranty Disclaimers, provided that you also include
+the original English version of this License and the original versions
+of those notices and disclaimers.  In case of a disagreement between
+the translation and the original version of this License or a notice
+or disclaimer, the original version will prevail.
+</p>
+<p>If a section in the Document is Entitled &ldquo;Acknowledgements&rdquo;,
+&ldquo;Dedications&rdquo;, or &ldquo;History&rdquo;, the requirement (section 4) to Preserve
+its Title (section 1) will typically require changing the actual
+title.
+</p>
+</li><li> TERMINATION
+
+<p>You may not copy, modify, sublicense, or distribute the Document
+except as expressly provided under this License.  Any attempt
+otherwise to copy, modify, sublicense, or distribute it is void, and
+will automatically terminate your rights under this License.
+</p>
+<p>However, if you cease all violation of this License, then your license
+from a particular copyright holder is reinstated (a) provisionally,
+unless and until the copyright holder explicitly and finally
+terminates your license, and (b) permanently, if the copyright holder
+fails to notify you of the violation by some reasonable means prior to
+60 days after the cessation.
+</p>
+<p>Moreover, your license from a particular copyright holder is
+reinstated permanently if the copyright holder notifies you of the
+violation by some reasonable means, this is the first time you have
+received notice of violation of this License (for any work) from that
+copyright holder, and you cure the violation prior to 30 days after
+your receipt of the notice.
+</p>
+<p>Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License.  If your rights have been terminated and not permanently
+reinstated, receipt of a copy of some or all of the same material does
+not give you any rights to use it.
+</p>
+</li><li> FUTURE REVISIONS OF THIS LICENSE
+
+<p>The Free Software Foundation may publish new, revised versions
+of the GNU Free Documentation License from time to time.  Such new
+versions will be similar in spirit to the present version, but may
+differ in detail to address new problems or concerns.  See
+<a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.
+</p>
+<p>Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License &ldquo;or any later version&rdquo; applies to it, you have the option of
+following the terms and conditions either of that specified version or
+of any later version that has been published (not as a draft) by the
+Free Software Foundation.  If the Document does not specify a version
+number of this License, you may choose any version ever published (not
+as a draft) by the Free Software Foundation.  If the Document
+specifies that a proxy can decide which future versions of this
+License can be used, that proxy&rsquo;s public statement of acceptance of a
+version permanently authorizes you to choose that version for the
+Document.
+</p>
+</li><li> RELICENSING
+
+<p>&ldquo;Massive Multiauthor Collaboration Site&rdquo; (or &ldquo;MMC Site&rdquo;) means any
+World Wide Web server that publishes copyrightable works and also
+provides prominent facilities for anybody to edit those works.  A
+public wiki that anybody can edit is an example of such a server.  A
+&ldquo;Massive Multiauthor Collaboration&rdquo; (or &ldquo;MMC&rdquo;) contained in the
+site means any set of copyrightable works thus published on the MMC
+site.
+</p>
+<p>&ldquo;CC-BY-SA&rdquo; means the Creative Commons Attribution-Share Alike 3.0
+license published by Creative Commons Corporation, a not-for-profit
+corporation with a principal place of business in San Francisco,
+California, as well as future copyleft versions of that license
+published by that same organization.
+</p>
+<p>&ldquo;Incorporate&rdquo; means to publish or republish a Document, in whole or
+in part, as part of another Document.
+</p>
+<p>An MMC is &ldquo;eligible for relicensing&rdquo; if it is licensed under this
+License, and if all works that were first published under this License
+somewhere other than this MMC, and subsequently incorporated in whole
+or in part into the MMC, (1) had no cover texts or invariant sections,
+and (2) were thus incorporated prior to November 1, 2008.
+</p>
+<p>The operator of an MMC Site may republish an MMC contained in the site
+under CC-BY-SA on the same site at any time before August 1, 2009,
+provided the MMC is eligible for relicensing.
+</p>
+</li></ol>
+
+<a name="ADDENDUM_003a-How-to-use-this-License-for-your-documents"></a>
+<h3 class="heading">ADDENDUM: How to use this License for your documents</h3>
+
+<p>To use this License in a document you have written, include a copy of
+the License in the document and put the following copyright and
+license notices just after the title page:
+</p>
+<div class="smallexample">
+<pre class="smallexample">  Copyright (C)  <var>year</var>  <var>your name</var>.
+  Permission is granted to copy, distribute and/or modify this document
+  under the terms of the GNU Free Documentation License, Version 1.3
+  or any later version published by the Free Software Foundation;
+  with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+  Texts.  A copy of the license is included in the section entitled ``GNU
+  Free Documentation License''.
+</pre></div>
+
+<p>If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the &ldquo;with&hellip;Texts.&rdquo; line with this:
+</p>
+<div class="smallexample">
+<pre class="smallexample">    with the Invariant Sections being <var>list their titles</var>, with
+    the Front-Cover Texts being <var>list</var>, and with the Back-Cover Texts
+    being <var>list</var>.
+</pre></div>
+
+<p>If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+</p>
+<p>If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License,
+to permit their use in free software.
+</p>
+
+<hr>
+<a name="Index-of-Functions"></a>
+<div class="header">
+<p>
+Next: <a href="#Index-of-Structures" accesskey="n" rel="next">Index of Structures</a>, Previous: <a href="#GNU-Free-Documentation-License" accesskey="p" rel="prev">GNU Free Documentation License</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Function-and-Macros-Index"></a>
+<h2 class="unnumbered">Function and Macros Index</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Functions_fn_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-fn" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-clk"><code>clk</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-I">I</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-init_005ftask"><code>init_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-K">K</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill_005fself"><code>kill_self</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill_005ftask"><code>kill_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kinit"><code>kinit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kpanic"><code>kpanic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-krun"><code>krun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-R">R</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reschedule"><code>reschedule</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-resume"><code>resume</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-run_005ftask"><code>run_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-S">S</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-suspend"><code>suspend</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tick"><code>tick</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-W">W</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wait"><code>wait</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Functions_fn_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-I"><b>I</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-K"><b>K</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-R"><b>R</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-S"><b>S</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-W"><b>W</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Index-of-Structures"></a>
+<div class="header">
+<p>
+Next: <a href="#Index-of-Variables" accesskey="n" rel="next">Index of Variables</a>, Previous: <a href="#Index-of-Functions" accesskey="p" rel="prev">Index of Functions</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="List-of-Data-Structures"></a>
+<h2 class="unnumbered">List of Data Structures</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Structures_tp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Structures_tp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-tp" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Structures_tp_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlist"><code>dlist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Structures_tp_letter-T">T</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-task"><code>task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Structures_tp_letter-D"><b>D</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Structures_tp_letter-T"><b>T</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<hr>
+<a name="Index-of-Variables"></a>
+<div class="header">
+<p>
+Previous: <a href="#Index-of-Structures" accesskey="p" rel="prev">Index of Structures</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="List-of-Global-Variables"></a>
+<h2 class="unnumbered">List of Global Variables</h2>
+
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-J"><b>J</b></a>
+ &nbsp; 
+</td></tr></table>
+<table class="index-vr" border="0">
+<tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Variables_vr_letter-C">C</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CONFIG_005fJIFFY"><code>CONFIG_JIFFY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Variables_vr_letter-J">J</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jiffies"><code>jiffies</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-jiffies-1"><code>jiffies</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+</table>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-J"><b>J</b></a>
+ &nbsp; 
+</td></tr></table>
+
+<script type="text/javascript">
+function parse_and_color(text) {
+
+    text.className = "prettyprint lang-c"
+}
+
+window.onload = function() {
+    var examples = document.querySelectorAll("pre.example");
+
+    for (var i=0; i<examples.length; ++i)
+        parse_and_color(examples.item(i));
+
+    var pretty = document.createElement("script");
+
+    pretty.type = "text/javascript";
+    pretty.src = "https://cdn.rawgit.com/google/code-prettify/master/loader/run_prettify.js";
+
+    document.body.appendChild(pretty);
+}
+</script>
+<hr>
+
+
+
+</body>
+</html>
