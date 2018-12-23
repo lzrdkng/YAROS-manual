@@ -1,6 +1,6 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<!-- This manual is for using YAROS, version 0.1.0 .
+<!-- This manual is for using YAROS, version 1.0.0
 
 Copyright (C) 2018 Olivier Dion
 
@@ -12,13 +12,13 @@ A copy of the license is included in the section entitled "GNU
 Free Documentation License". -->
 <!-- Created by GNU Texinfo 6.3, http://www.gnu.org/software/texinfo/ -->
 <head>
-<title>Using YAROS Version 0.1.0</title>
+<title>Using YAROS Version 1.0.0</title>
 
-<meta name="description" content="Using YAROS Version 0.1.0">
-<meta name="keywords" content="Using YAROS Version 0.1.0">
+<meta name="description" content="Using YAROS Version 1.0.0">
+<meta name="keywords" content="Using YAROS Version 1.0.0">
 <meta name="resource-type" content="document">
 <meta name="distribution" content="global">
-<meta name="Generator" content="makeinfo">
+<meta name="Generator" content="texi2any">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <link href="#Top" rel="start" title="Top">
 <link href="#Index-of-Functions" rel="index" title="Index of Functions">
@@ -350,8 +350,7 @@ li.L9 { background: #eee }
 </head>
 
 <body lang="en">
-<h1 class="settitle" align="center">Using YAROS Version 0.1.0</h1>
-
+<h1 class="settitle" align="center">Using YAROS Version 1.0.0</h1>
 
 
 
@@ -384,31 +383,36 @@ li.L9 { background: #eee }
   <li><a name="toc-Concepts-of-YAROS" href="#Concepts">1 Concepts of YAROS</a>
   <ul class="no-bullet">
     <li><a name="toc-C-Dialect-1" href="#C-Dialect">1.1 C Dialect</a></li>
-    <li><a name="toc-Xlist-1" href="#Xlist">1.2 Xlist</a></li>
-    <li><a name="toc-Definition-of-a-Task" href="#Task">1.3 Definition of a Task</a></li>
-    <li><a name="toc-Task_0027s-Priority" href="#Priority">1.4 Task&rsquo;s Priority</a></li>
-    <li><a name="toc-Task_0027s-Niceness" href="#Niceness">1.5 Task&rsquo;s Niceness</a></li>
-    <li><a name="toc-Task_0027s-Stack-Size" href="#Stack">1.6 Task&rsquo;s Stack Size</a></li>
-    <li><a name="toc-The-Scheduler" href="#Scheduling">1.7 The Scheduler</a></li>
-    <li><a name="toc-Functions" href="#Functions">1.8 Functions</a>
+    <li><a name="toc-Autogen-1" href="#Autogen">1.2 Autogen</a></li>
+    <li><a name="toc-Definition-of-a-Task" href="#Task">1.3 Definition of a Task</a>
     <ul class="no-bullet">
-      <li><a name="toc-Kernel-Control" href="#Kernel-Control">1.8.1 Kernel Control</a></li>
-      <li><a name="toc-Time-Control" href="#Time-Control">1.8.2 Time Control</a></li>
-      <li><a name="toc-Task-and-Scheduler" href="#Task-and-Scheduler">1.8.3 Task and Scheduler</a></li>
+      <li><a name="toc-Task_0027s-Priority" href="#Priority">1.3.1 Task&rsquo;s Priority</a></li>
+      <li><a name="toc-Task_0027s-Niceness" href="#Niceness">1.3.2 Task&rsquo;s Niceness</a></li>
+      <li><a name="toc-Task_0027s-Stack-Size" href="#Stack">1.3.3 Task&rsquo;s Stack Size</a></li>
+    </ul></li>
+    <li><a name="toc-The-Scheduler" href="#Scheduling">1.4 The Scheduler</a></li>
+    <li><a name="toc-Synchronizing-Tasks" href="#Synchronizing">1.5 Synchronizing Tasks</a></li>
+    <li><a name="toc-Functions" href="#Functions">1.6 Functions</a>
+    <ul class="no-bullet">
+      <li><a name="toc-Kernel-Control" href="#Kernel-Control">1.6.1 Kernel Control</a></li>
+      <li><a name="toc-Time-Control" href="#Time-Control">1.6.2 Time Control</a></li>
+      <li><a name="toc-Task-and-Scheduler" href="#Task-and-Scheduler">1.6.3 Task and Scheduler</a></li>
+      <li><a name="toc-Mutex" href="#Mutex">1.6.4 Mutex</a></li>
     </ul></li>
   </ul></li>
-  <li><a name="toc-Examples-1" href="#Examples">2 Examples</a>
+  <li><a name="toc-Kernel-Configuration" href="#Configuring">2 Kernel Configuration</a></li>
+  <li><a name="toc-Examples-1" href="#Examples">3 Examples</a>
   <ul class="no-bullet">
-    <li><a name="toc-Defining-the-Tasks" href="#Defining-the-Tasks">2.1 Defining the Tasks</a></li>
-    <li><a name="toc-A-Basic-Main" href="#A-Basic-Main">2.2 A Basic Main</a></li>
-    <li><a name="toc-The-Tasks-Implementation" href="#The-Tasks-Implementation">2.3 The Tasks Implementation</a></li>
+    <li><a name="toc-Defining-the-Tasks" href="#Defining-the-Tasks">3.1 Defining the Tasks</a></li>
+    <li><a name="toc-A-Basic-Main" href="#A-Basic-Main">3.2 A Basic Main</a></li>
+    <li><a name="toc-The-Tasks-Implementation" href="#The-Tasks-Implementation">3.3 The Tasks Implementation</a></li>
   </ul></li>
-  <li><a name="toc-The-Internal-of-YAROS" href="#Internal">3 The Internal of YAROS</a>
+  <li><a name="toc-The-Internal-of-YAROS" href="#Internal">4 The Internal of YAROS</a>
   <ul class="no-bullet">
-    <li><a name="toc-Structures" href="#Structures">3.1 Structures</a></li>
-    <li><a name="toc-Global-Variales" href="#Global-Variales">3.2 Global Variales</a></li>
-    <li><a name="toc-Configuration" href="#Configuration">3.3 Configuration</a></li>
+    <li><a name="toc-Structures" href="#Structures">4.1 Structures</a></li>
+    <li><a name="toc-Global-Variales" href="#Global-Variales">4.2 Global Variales</a></li>
   </ul></li>
+  <li><a name="toc-Extending-YAROS" href="#Extending">5 Extending YAROS</a></li>
   <li><a name="toc-Glossary-1" href="#Glossary">Appendix A Glossary</a></li>
   <li><a name="toc-Copying-This-Manual" href="#GNU-Free-Documentation-License">Appendix B Copying This Manual</a></li>
   <li><a name="toc-Function-and-Macros-Index" href="#Index-of-Functions">Function and Macros Index</a></li>
@@ -424,9 +428,9 @@ li.L9 { background: #eee }
 <p>
 Next: <a href="#Prologue" accesskey="n" rel="next">Prologue</a>, Up: <a href="dir.html#Top" accesskey="u" rel="up">(dir)</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="YAROS"></a>
-<h1 class="top">YAROS</h1>
-<p>This manual is for using YAROS, version 0.1.0 .
+<a name="YAROS-1_002e0_002e0"></a>
+<h1 class="top">YAROS 1.0.0</h1>
+<p>This manual is for using YAROS, version 1.0.0
 </p>
 <p>Copyright &copy; 2018 Olivier Dion
 </p>
@@ -441,29 +445,33 @@ Free Documentation License&quot;.
 
 
 <table class="menu" border="0" cellspacing="0">
-<tr><td align="left" valign="top">&bull; <a href="#Prologue" accesskey="1">Prologue</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is YAROS
+<tr><td align="left" valign="top">&bull; <a href="#Prologue" accesskey="1">Prologue</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">What is YAROS.
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
 Introduction sections:
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Concepts" accesskey="2">Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The concepts of YAROS
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Concepts" accesskey="2">Concepts</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The concepts of YAROS.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Examples" accesskey="3">Examples</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Few examples
+<tr><td align="left" valign="top">&bull; <a href="#Configuring" accesskey="3">Configuring</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to configure YAROS.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Examples" accesskey="4">Examples</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Few examples.
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
 Reference sections:
-</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Internal" accesskey="4">Internal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How YAROS work internally.
+</pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#Internal" accesskey="5">Internal</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How YAROS work internally.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="5">Glossary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Glossary.
+<tr><td align="left" valign="top">&bull; <a href="#Extending" accesskey="6">Extending</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How to add new MCU to YAROS.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="6">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying this document.
+<tr><td align="left" valign="top">&bull; <a href="#Glossary" accesskey="7">Glossary</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Glossary.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index-of-Functions" accesskey="7">Index of Functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#GNU-Free-Documentation-License" accesskey="8">GNU Free Documentation License</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Copying this document.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index-of-Structures" accesskey="8">Index of Structures</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Functions" accesskey="9">Index of Functions</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Index-of-Variables" accesskey="9">Index of Variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Structures">Index of Structures</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Index-of-Variables">Index of Variables</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -473,7 +481,7 @@ The Concepts of YAROS
 
 </pre></th></tr><tr><td align="left" valign="top">&bull; <a href="#C-Dialect">C Dialect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">The dialect of the C programming language used for YAROS and why.
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Xlist">Xlist</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Usage of X macros in YAROS.
+<tr><td align="left" valign="top">&bull; <a href="#Autogen">Autogen</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Usage of GNU autogen in YAROS.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Task">Task</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Definition of a Task.
 </td></tr>
@@ -484,6 +492,8 @@ The Concepts of YAROS
 <tr><td align="left" valign="top">&bull; <a href="#Stack">Stack</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">Why stack usage is important.
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Scheduling">Scheduling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How scheduling is done.
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Synchronizing">Synchronizing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">How the synchronyze tasks.
 </td></tr>
 <tr><th colspan="3" align="left" valign="top"><pre class="menu-comment">
 
@@ -552,7 +562,7 @@ free to send your comments to <a href="mailto:olivier.dion@polymtl.ca">olivier.d
 <a name="Concepts"></a>
 <div class="header">
 <p>
-Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Prologue" accesskey="p" rel="prev">Prologue</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Configuring" accesskey="n" rel="next">Configuring</a>, Previous: <a href="#Prologue" accesskey="p" rel="prev">Prologue</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Concepts-of-YAROS"></a>
 <h2 class="chapter">1 Concepts of YAROS</h2>
@@ -564,17 +574,13 @@ around it.
 <table class="menu" border="0" cellspacing="0">
 <tr><td align="left" valign="top">&bull; <a href="#C-Dialect" accesskey="1">C Dialect</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Xlist" accesskey="2">Xlist</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Autogen" accesskey="2">Autogen</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 <tr><td align="left" valign="top">&bull; <a href="#Task" accesskey="3">Task</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Priority" accesskey="4">Priority</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Scheduling" accesskey="4">Scheduling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Niceness" accesskey="5">Niceness</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Stack" accesskey="6">Stack</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
-</td></tr>
-<tr><td align="left" valign="top">&bull; <a href="#Scheduling" accesskey="7">Scheduling</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+<tr><td align="left" valign="top">&bull; <a href="#Synchronizing" accesskey="5">Synchronizing</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
 </td></tr>
 </table>
 
@@ -582,7 +588,7 @@ around it.
 <a name="C-Dialect"></a>
 <div class="header">
 <p>
-Next: <a href="#Xlist" accesskey="n" rel="next">Xlist</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Autogen" accesskey="n" rel="next">Autogen</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="C-Dialect-1"></a>
 <h3 class="section">1.1 C Dialect</h3>
@@ -623,53 +629,63 @@ pros and cons for using C++.
 
 </li><li>- The whole C++ standard library and the STL are banned
 
-</li><li>- Will only work with C++ code
+</li><li>- Less portable.
 
 </li></ul>
 
 </li></ul>
 
 <p>As you can see, the only pros for using C++ is template for better
-meta-programming.  The cons outweigh the pros and therefore, only C
-shall be use for YAROS.  Maybe in the future C++ written like C will
-be used, nothing is cast into stone.
+meta-programming. Using C make it more portable and this is very
+important for YAROS. The cons outweigh the pros, in my opinion, and
+therefore, only C shall be use for YAROS.
 </p>
 <hr>
-<a name="Xlist"></a>
+<a name="Autogen"></a>
 <div class="header">
 <p>
 Next: <a href="#Task" accesskey="n" rel="next">Task</a>, Previous: <a href="#C-Dialect" accesskey="p" rel="prev">C Dialect</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
-<a name="Xlist-1"></a>
-<h3 class="section">1.2 Xlist</h3>
-<a name="index-Xlist"></a>
-<p>YAROS makes extensive use of X macros to keep files synchronized.
-Every files that have a list of X macros have the extension
-<samp>.xlist</samp> .  An example would be the file
-<samp>include/YAROS/global.xlist.h</samp> that synchronizes the files
-<samp>include/YAROS/global.h</samp> and <samp>kernel/global.c</samp> .
+<a name="Autogen-1"></a>
+<h3 class="section">1.2 Autogen</h3>
+<a name="index-Autogen"></a>
+<p>YAROS makes extensive use of <b>GNU autogen</b> to keep files
+synchronized.  Most of them are use for developping, therefore you
+don&rsquo;t need to know them.  There&rsquo;s one exeception to this.  To generate
+your kernel configuration, you will need to generate a definition file
+that will be use by autogen to generate the header for your kernel.
+<a href="#Configuring">Configuring</a>.
 </p>
 <hr>
 <a name="Task"></a>
 <div class="header">
 <p>
-Next: <a href="#Priority" accesskey="n" rel="next">Priority</a>, Previous: <a href="#Xlist" accesskey="p" rel="prev">Xlist</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Scheduling" accesskey="n" rel="next">Scheduling</a>, Previous: <a href="#Autogen" accesskey="p" rel="prev">Autogen</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Definition-of-a-Task"></a>
 <h3 class="section">1.3 Definition of a Task</h3>
 <a name="index-Task"></a>
 <p>A task in YAROS is what we can refer to as a thread.  There are 3
 properties that you should consider when developing a task. Its
-priority, its nice value and its stack size.
+priority, its niceness and its stack size.
 </p>
+<table class="menu" border="0" cellspacing="0">
+<tr><td align="left" valign="top">&bull; <a href="#Priority" accesskey="1">Priority</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Niceness" accesskey="2">Niceness</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+<tr><td align="left" valign="top">&bull; <a href="#Stack" accesskey="3">Stack</a>:</td><td>&nbsp;&nbsp;</td><td align="left" valign="top">
+</td></tr>
+</table>
+
 <hr>
 <a name="Priority"></a>
 <div class="header">
 <p>
-Next: <a href="#Niceness" accesskey="n" rel="next">Niceness</a>, Previous: <a href="#Task" accesskey="p" rel="prev">Task</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Niceness" accesskey="n" rel="next">Niceness</a>, Up: <a href="#Task" accesskey="u" rel="up">Task</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Task_0027s-Priority"></a>
-<h3 class="section">1.4 Task&rsquo;s Priority</h3>
+<h4 class="subsection">1.3.1 Task&rsquo;s Priority</h4>
 <a name="index-Task_0027s-Priority"></a>
 <p>A task&rsquo;s priority range between 0 and 7 inclusive. The lower the value
 is, the higher is the priority.  As for now, the priority only
@@ -680,10 +696,10 @@ might change in the future.
 <a name="Niceness"></a>
 <div class="header">
 <p>
-Next: <a href="#Stack" accesskey="n" rel="next">Stack</a>, Previous: <a href="#Priority" accesskey="p" rel="prev">Priority</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Stack" accesskey="n" rel="next">Stack</a>, Previous: <a href="#Priority" accesskey="p" rel="prev">Priority</a>, Up: <a href="#Task" accesskey="u" rel="up">Task</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Task_0027s-Niceness"></a>
-<h3 class="section">1.5 Task&rsquo;s Niceness</h3>
+<h4 class="subsection">1.3.2 Task&rsquo;s Niceness</h4>
 <a name="index-Task_0027s-Niceness"></a>
 <p>A task&rsquo;s nice value range between 0 and 15 inclusive. It determines how
 much CPU time his allocated for the task before rescheduling.  We said
@@ -696,10 +712,10 @@ value of nice, will run longer.
 <a name="Stack"></a>
 <div class="header">
 <p>
-Next: <a href="#Scheduling" accesskey="n" rel="next">Scheduling</a>, Previous: <a href="#Niceness" accesskey="p" rel="prev">Niceness</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Previous: <a href="#Niceness" accesskey="p" rel="prev">Niceness</a>, Up: <a href="#Task" accesskey="u" rel="up">Task</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Task_0027s-Stack-Size"></a>
-<h3 class="section">1.6 Task&rsquo;s Stack Size</h3>
+<h4 class="subsection">1.3.3 Task&rsquo;s Stack Size</h4>
 <a name="index-Task_0027s-Stack-Size"></a>
 <p>The stack size is probably the most important value to
 evaluate.  Underestimate the value and you might overflow and corrupt
@@ -720,27 +736,47 @@ be extra cautious.
 <a name="Scheduling"></a>
 <div class="header">
 <p>
-Previous: <a href="#Stack" accesskey="p" rel="prev">Stack</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Synchronizing" accesskey="n" rel="next">Synchronizing</a>, Previous: <a href="#Task" accesskey="p" rel="prev">Task</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="The-Scheduler"></a>
-<h3 class="section">1.7 The Scheduler</h3>
+<h3 class="section">1.4 The Scheduler</h3>
 <a name="index-Scheduling"></a>
 <p>YAROS is a time-sharing system.  It follows a simple <a href="#round_002drobin">round-robin</a> policy
 and is therefore preemptive.  It&rsquo;s athought possible for task to be
 cooperative by forcing scheduling.
 </p>
+<p>Because of the scheduling policy, you should put the task with the
+smallest time slice at the begining of the running queue.
+</p>
+
+<hr>
+<a name="Synchronizing"></a>
+<div class="header">
+<p>
+Previous: <a href="#Scheduling" accesskey="p" rel="prev">Scheduling</a>, Up: <a href="#Concepts" accesskey="u" rel="up">Concepts</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Synchronizing-Tasks"></a>
+<h3 class="section">1.5 Synchronizing Tasks</h3>
+<a name="index-Synchronizing"></a>
+<p>To synchronize tasks between them, you will have to use a mutex.
+Mutex in YAROS are a single byte wrap in a structure.  Because you
+only need 1 bit to lock and unlock, every mutex has 8 keys.
+Therefore, every time you want to use a mutex, you will need to
+provide a pointer to the structure and the key that you want to
+acquired/released.
+</p>
 <a name="Functions"></a>
-<h3 class="section">1.8 Functions</h3>
+<h3 class="section">1.6 Functions</h3>
 <p>This section will describe to you the interface that you can use with
 YAROS.  Functions that are tagged as <i>Atomic</i> are guaranteed to be
 executed without rescheduling.  Functions that are tagged as <i>Macro</i>
 are composite of regular or atomic function.
 </p>
 <a name="Kernel-Control"></a>
-<h4 class="subsection">1.8.1 Kernel Control</h4>
+<h4 class="subsection">1.6.1 Kernel Control</h4>
 <p>These functions manipulate the kernel. 
 </p><dl>
-<dt><a name="index-kinit"></a>: <em>void</em> <strong>kinit</strong> <em>(void)</em></dt>
+<dt><a name="index-init_005fkernel"></a>: <em>void</em> <strong>init_kernel</strong> <em>(void)</em></dt>
 <dd><br>
 <p>Initiliaze the kernel.  This should be the first function you call in your main.
 </p><br>
@@ -751,7 +787,7 @@ Using YAROS without initializing the kernel first result in undefined behavior.
 <br>
 <br>
 <dl>
-<dt><a name="index-kpanic"></a>: <em>void</em> <strong>kpanic</strong> <em>(void)</em></dt>
+<dt><a name="index-panic_005fkernel"></a>: <em>void</em> <strong>panic_kernel</strong> <em>(void)</em></dt>
 <dd><br>
 <p>Stop all system activities and print -| KERNEL PANIC.
 </p><br>
@@ -762,7 +798,7 @@ The kernel can not recover from a panic.
 <br>
 <br>
 <dl>
-<dt><a name="index-krun"></a>: <em>void</em> <strong>krun</strong> <em>(void)</em></dt>
+<dt><a name="index-run_005fkernel"></a>: <em>void</em> <strong>run_kernel</strong> <em>(void)</em></dt>
 <dd><br>
 <p>Launch the kernel scheduler.  This should be the last thing in your main.
 </p><br>
@@ -774,7 +810,7 @@ If no task is scheduled, the kernel will spin a loop until a task is scheduled.
 <br>
 
 <a name="Time-Control"></a>
-<h4 class="subsection">1.8.2 Time Control</h4>
+<h4 class="subsection">1.6.2 Time Control</h4>
 <p>These functions help you with getting the time.
 </p><dl>
 <dt><a name="index-clk"></a>: <em>U64</em> <strong>clk</strong> <em>(void)</em></dt>
@@ -794,10 +830,10 @@ If no task is scheduled, the kernel will spin a loop until a task is scheduled.
 <br>
 
 <a name="Task-and-Scheduler"></a>
-<h4 class="subsection">1.8.3 Task and Scheduler</h4>
+<h4 class="subsection">1.6.3 Task and Scheduler</h4>
 <p>These functions give you control over the tasks and the scheduler
 </p><dl>
-<dt><a name="index-init_005ftask"></a>: <em>struct task*</em> <strong>init_task</strong> <em>(struct task *<code>task</code>, taskfunc <code>func</code>, void *<code>data</code>)</em></dt>
+<dt><a name="index-init_005ftask"></a>: <em>void</em> <strong>init_task</strong> <em>(struct task *<code>task</code>, taskfunc <code>func</code>, void *<code>data</code>)</em></dt>
 <dd><br>
 <p>Initialize the task pointed by <code>task</code> with function entry point
 pointed by <code>func</code> and parameter passed to the entry point,
@@ -847,7 +883,7 @@ Rescheduling when there&rsquo;s only one task running has no effect.
 <br>
 <br>
 <dl>
-<dt><a name="index-resume"></a>Atomic: <em>void</em> <strong>resume</strong> <em>(struct task *<code>task</code>)</em></dt>
+<dt><a name="index-resume_005ftask"></a>Atomic: <em>void</em> <strong>resume_task</strong> <em>(struct task *<code>task</code>)</em></dt>
 <dd><br>
 <p>Put the task pointed by <code>task</code> in the running queue.  If <code>NULL</code> is
 passed, the calling task is put in the running queue.
@@ -866,14 +902,14 @@ Resuming a task that is already running has no effect.
 <p>&rarr;
 ({
 init_task(<code>TASK</code>, <code>FUNC</code>, <code>DATA</code>);
-resume(<code>TASK</code>);
+resume_task(<code>TASK</code>);
 })
 </p></dd></dl>
 <br>
 <br>
 <br>
 <dl>
-<dt><a name="index-suspend"></a>Atomic: <em>void</em> <strong>suspend</strong> <em>(struct task *<code>task</code>)</em></dt>
+<dt><a name="index-suspend_005ftask"></a>Atomic: <em>void</em> <strong>suspend_task</strong> <em>(struct task *<code>task</code>)</em></dt>
 <dd><br>
 <p>Put the task pointed by <code>task</code> in the sleeping queue.  If <code>NULL</code> is
 passed, the calling task is put in the sleeping queue.
@@ -898,18 +934,74 @@ energy mode.
 <br>
 <br>
 
+<a name="Mutex"></a>
+<h4 class="subsection">1.6.4 Mutex</h4>
+<p>These functions help you synchronize task between them.
+</p><dl>
+<dt><a name="index-spinlock"></a>: <em>void</em> <strong>spinlock</strong> <em>(volatile struct mutex *mutex, U8 key)</em></dt>
+<dd><br>
+<p>Try to acquire a mutex pointed by <code>mutex</code> with key <code>key</code>.
+</p>
+<p>Return <code>OK</code> on success, <code>-EBUSY</code> if the mutex is already acquired.
+</p><br>
+
+<p><b>Warning: </b>
+This should never be call in a ISR.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-spinlock-1"></a>: <em>void</em> <strong>spinlock</strong> <em>(volatile struct mutex *mutex, U8 key)</em></dt>
+<dd><br>
+<p>Loop until the mutex pointed by <code>mutex</code> with key <code>key</code> is
+acquired.
+</p><br>
+<p><b>Warning: </b>
+Those type of lock are not recursive!  To avoid deadlock,
+always release them before locking them again in the same task.
+</p></dd></dl>
+<br>
+<br>
+<br>
+<dl>
+<dt><a name="index-unlock"></a>: <em>void</em> <strong>unlock</strong> <em>(volatile struct mutex *mutex, U8 key)</em></dt>
+<dd><br>
+<p>Unlock the mutex pointed by <code>mutex</code> with key <code>key</code>.
+</p><br>
+<p><b>Note: </b>
+The task is then reschedule.  This is a design decision so that other
+task that are waiting for the mutex have a chance to lock it.
+</p></dd></dl>
+<br>
+<br>
+<br>
+
+
+<hr>
+<a name="Configuring"></a>
+<div class="header">
+<p>
+Next: <a href="#Examples" accesskey="n" rel="next">Examples</a>, Previous: <a href="#Concepts" accesskey="p" rel="prev">Concepts</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Kernel-Configuration"></a>
+<h2 class="chapter">2 Kernel Configuration</h2>
+
+<dl>
+<dt><a name="index-CONFIG_005fJIFFY"></a>Config Option: <strong>CONFIG_JIFFY</strong></dt>
+</dl>
 
 <hr>
 <a name="Examples"></a>
 <div class="header">
 <p>
-Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a href="#Concepts" accesskey="p" rel="prev">Concepts</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a href="#Configuring" accesskey="p" rel="prev">Configuring</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Examples-1"></a>
-<h2 class="chapter">2 Examples</h2>
+<h2 class="chapter">3 Examples</h2>
 
 <a name="Defining-the-Tasks"></a>
-<h3 class="section">2.1 Defining the Tasks</h3>
+<h3 class="section">3.1 Defining the Tasks</h3>
 <div class="example">
 <pre class="example">    #include &quot;YAROS.h&quot;
 
@@ -929,13 +1021,13 @@ Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a hr
 </pre></div>
 
 <a name="A-Basic-Main"></a>
-<h3 class="section">2.2 A Basic Main</h3>
+<h3 class="section">3.2 A Basic Main</h3>
 <div class="example">
 <pre class="example">    int
     main(int argc, char *argv[])
     {
         /* Initialize the Kernel */
-        kinit();
+        init_kernel();
 
         /* Foo is scheduled */
         run_task(&amp;foo,
@@ -948,12 +1040,12 @@ Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a hr
                   NULL);
 
         /* krun never return */
-        krun();
+        run_kernel();
     }
 </pre></div>
 
 <a name="The-Tasks-Implementation"></a>
-<h3 class="section">2.3 The Tasks Implementation</h3>
+<h3 class="section">3.3 The Tasks Implementation</h3>
 <div class="example">
 <pre class="example">    OS_TASK void
     do_foo(void *bar_task)
@@ -966,13 +1058,13 @@ Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a hr
             write_usart(0, foo_str, sizeof(foo_str));
 
             /* Resume bar */
-            resume(bar_task);
+            resume_task(&amp;bar);
 
             /* Wait 1 second */
             wait(HZ);
 
             /* Suspend bar */
-            suspend(bar_task);
+            suspend_task(&amp;bar);
         }
     }
 
@@ -996,17 +1088,17 @@ Next: <a href="#Internal" accesskey="n" rel="next">Internal</a>, Previous: <a hr
 <a name="Internal"></a>
 <div class="header">
 <p>
-Next: <a href="#Glossary" accesskey="n" rel="next">Glossary</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#Extending" accesskey="n" rel="next">Extending</a>, Previous: <a href="#Examples" accesskey="p" rel="prev">Examples</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="The-Internal-of-YAROS"></a>
-<h2 class="chapter">3 The Internal of YAROS</h2>
+<h2 class="chapter">4 The Internal of YAROS</h2>
 <p>This chapter will explain to you how YAROS work internally.  After
 reading this chapter, you should be able to understand how the
 scheduler work with tasks, how interupts and devices are manage and
 how mutexes work.
 </p>
 <a name="Structures"></a>
-<h3 class="section">3.1 Structures</h3>
+<h3 class="section">4.1 Structures</h3>
 <dl>
 <dt><a name="index-dlist"></a>struct: <strong>dlist</strong></dt>
 <dd><pre class="prettyprint lang-c">
@@ -1041,8 +1133,11 @@ The type sstack_t means <b>size stack type</b>.  It is an horrible name, so if y
 </p></dd></dl>
 
 <a name="Global-Variales"></a>
-<h3 class="section">3.2 Global Variales</h3>
-<dl>
+<h3 class="section">4.2 Global Variales</h3>
+<p>This section will enumerate all global variables used by YAROS.  All
+global variables are defined in <samp>autogen/def/global.def</samp> .  As an
+user you should never try to access those variables directly.
+</p><dl>
 <dt><a name="index-jiffies"></a>Global: <em>jiffy_t</em> <strong>jiffies</strong></dt>
 <dd><p>Just like a clock has a finite precision, YAROS has it own limit when
 it come to counting time, and this limit is call a jiffy.  We define a
@@ -1052,24 +1147,48 @@ had started.  This variable is increment <code>HZ</code> times per second,
 </p>
 </dd></dl>
 <dl>
-<dt><a name="index-jiffies-1"></a>Global: <em>jiffy_t</em> <strong>jiffies</strong></dt>
-<dd><p>Smallest unit of time
-</p></dd></dl>
-
-
-<a name="Configuration"></a>
-<h3 class="section">3.3 Configuration</h3>
+<dt><a name="index-U8"></a>Global: <em>volatile</em> <strong>U8</strong> <em>time_slice</em></dt>
+<dd><p>This variable represent the number of jiffies left for the current
+running task before rescheduling is done by the system.
+</p>
+</dd></dl>
 <dl>
-<dt><a name="index-CONFIG_005fJIFFY"></a>Config Option: <strong>CONFIG_JIFFY</strong></dt>
-<dd><p>foo foo foo
-</p></dd></dl>
+<dt><a name="index-dlist-1"></a>Global: <em>struct</em> <strong>dlist</strong> <em>sleeping_queue</em></dt>
+<dd><p>Represent the queue of task that are sleeping.
+</p>
+</dd></dl>
+<dl>
+<dt><a name="index-dlist-2"></a>Global: <em>struct</em> <strong>dlist</strong> <em>running_queue</em></dt>
+<dd><p>Represent the queue of task that are ready for scheduling.
+</p>
+</dd></dl>
+<dl>
+<dt><a name="index-dlist-3"></a>Global: <em>struct</em> <strong>dlist</strong> <em>* volatile current_task</em></dt>
+<dd><p>A pointer to the current task running.
+</p>
+</dd></dl>
+<dl>
+<dt><a name="index-_002a"></a>Global: <em>U16</em> <strong>*</strong> <em>volatile stack_pointer</em></dt>
+<dd>
+<p>Represent the address of the top of the stack of the current running
+task.
+</p>
+</dd></dl>
 
+<hr>
+<a name="Extending"></a>
+<div class="header">
+<p>
+Next: <a href="#Glossary" accesskey="n" rel="next">Glossary</a>, Previous: <a href="#Internal" accesskey="p" rel="prev">Internal</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+</div>
+<a name="Extending-YAROS"></a>
+<h2 class="chapter">5 Extending YAROS</h2>
 
 <hr>
 <a name="Glossary"></a>
 <div class="header">
 <p>
-Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Internal" accesskey="p" rel="prev">Internal</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
+Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Free Documentation License</a>, Previous: <a href="#Extending" accesskey="p" rel="prev">Extending</a>, Up: <a href="#Top" accesskey="u" rel="up">Top</a> &nbsp; [<a href="#SEC_Contents" title="Table of contents" rel="contents">Contents</a>][<a href="#Index-of-Functions" title="Index" rel="index">Index</a>]</p>
 </div>
 <a name="Glossary-1"></a>
 <h2 class="appendix">Appendix A Glossary</h2>
@@ -1077,8 +1196,12 @@ Next: <a href="#GNU-Free-Documentation-License" accesskey="n" rel="next">GNU Fre
 
 <dl compact="compact">
 <dt>Round-Robin Policy</dt>
-<dd><a name="round_002drobin"></a><p>foo
+<dd><a name="round_002drobin"></a>
+<p>In a round-robing scheduling policy, every task as a time slice.  When
+this time slice is expired, the task is putted at the tail of the
+queue and the next task is scheduled.
 </p>
+
 </dd>
 <dt>RTOS</dt>
 <dd><p>A RTOS is a real-time operating system.  It must be able to meet soft
@@ -1086,12 +1209,6 @@ and hard deadline.  See <a href="#Prologue">Prologue</a>.
 </p>
 <p>It has its own context (stack of execution)
 and is independent of other tasks.  Of course just like thread, tasks can be synchronize between them via mutexes or semaphores.  See <a href="#Task">Task</a>.
-</p>
-</dd>
-<dt>Xlist</dt>
-<dd><p>A Xlist is a list of terms wrapped in a X macro individually.  Xlist
-are useful to synchronize list of elements between files that use them
-but expand the X macro differently.  See <a href="#Xlist">Xlist</a>.
 </p>
 </dd>
 <dt>YAROS</dt>
@@ -1596,11 +1713,15 @@ Next: <a href="#Index-of-Structures" accesskey="n" rel="next">Index of Structure
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-K"><b>K</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-P"><b>P</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-R"><b>R</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-U"><b>U</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-W"><b>W</b></a>
  &nbsp; 
@@ -1609,31 +1730,38 @@ Next: <a href="#Index-of-Structures" accesskey="n" rel="next">Index of Structure
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-clk"><code>clk</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-clk"><code>clk</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-I">I</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-init_005ftask"><code>init_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-init_005fkernel"><code>init_kernel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-init_005ftask"><code>init_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-K">K</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill_005fself"><code>kill_self</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kill_005ftask"><code>kill_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kinit"><code>kinit</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-kpanic"><code>kpanic</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-krun"><code>krun</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill_005fself"><code>kill_self</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-kill_005ftask"><code>kill_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-P">P</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-panic_005fkernel"><code>panic_kernel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-R">R</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-reschedule"><code>reschedule</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-resume"><code>resume</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-run_005ftask"><code>run_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-reschedule"><code>reschedule</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-resume_005ftask"><code>resume_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-run_005fkernel"><code>run_kernel</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-run_005ftask"><code>run_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-S">S</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-suspend"><code>suspend</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-spinlock"><code>spinlock</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-spinlock-1"><code>spinlock</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-suspend_005ftask"><code>suspend_task</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-T">T</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-tick"><code>tick</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-tick"><code>tick</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Functions_fn_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-unlock"><code>unlock</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Functions_fn_letter-W">W</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-wait"><code>wait</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Scheduling">Scheduling</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-wait"><code>wait</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Synchronizing">Synchronizing</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
 <table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Functions_fn_letter-C"><b>C</b></a>
@@ -1642,11 +1770,15 @@ Next: <a href="#Index-of-Structures" accesskey="n" rel="next">Index of Structure
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-K"><b>K</b></a>
  &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-P"><b>P</b></a>
+ &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-R"><b>R</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-S"><b>S</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-T"><b>T</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Functions_fn_letter-U"><b>U</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Functions_fn_letter-W"><b>W</b></a>
  &nbsp; 
@@ -1691,25 +1823,49 @@ Previous: <a href="#Index-of-Structures" accesskey="p" rel="prev">Index of Struc
 <a name="List-of-Global-Variables"></a>
 <h2 class="unnumbered">List of Global Variables</h2>
 
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_symbol-1"><b>*</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Variables_vr_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
 <table class="index-vr" border="0">
 <tr><td></td><th align="left">Index Entry</th><td>&nbsp;</td><th align="left"> Section</th></tr>
 <tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Variables_vr_symbol-1">*</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-_002a"><code>*</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Variables_vr_letter-C">C</a></th><td></td><td></td></tr>
-<tr><td></td><td valign="top"><a href="#index-CONFIG_005fJIFFY"><code>CONFIG_JIFFY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-CONFIG_005fJIFFY"><code>CONFIG_JIFFY</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Configuring">Configuring</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Variables_vr_letter-D">D</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlist-1"><code>dlist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlist-2"><code>dlist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td></td><td valign="top"><a href="#index-dlist-3"><code>dlist</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 <tr><th><a name="Index-of-Variables_vr_letter-J">J</a></th><td></td><td></td></tr>
 <tr><td></td><td valign="top"><a href="#index-jiffies"><code>jiffies</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
-<tr><td></td><td valign="top"><a href="#index-jiffies-1"><code>jiffies</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
+<tr><td colspan="4"> <hr></td></tr>
+<tr><th><a name="Index-of-Variables_vr_letter-U">U</a></th><td></td><td></td></tr>
+<tr><td></td><td valign="top"><a href="#index-U8"><code>U8</code></a>:</td><td>&nbsp;</td><td valign="top"><a href="#Internal">Internal</a></td></tr>
 <tr><td colspan="4"> <hr></td></tr>
 </table>
-<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+<table><tr><th valign="top">Jump to: &nbsp; </th><td><a class="summary-letter" href="#Index-of-Variables_vr_symbol-1"><b>*</b></a>
+ &nbsp; 
+<br>
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-C"><b>C</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-D"><b>D</b></a>
  &nbsp; 
 <a class="summary-letter" href="#Index-of-Variables_vr_letter-J"><b>J</b></a>
+ &nbsp; 
+<a class="summary-letter" href="#Index-of-Variables_vr_letter-U"><b>U</b></a>
  &nbsp; 
 </td></tr></table>
 
